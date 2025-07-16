@@ -1,0 +1,152 @@
+<!-- filepath: disponibilidad-app/frontend/Dispo.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disponibilidad</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+<div id="Contenedor">
+    <div class="login-box">
+        <h2>Ingrese los datos del área de su interés</h2>
+        <form id="loginForm">
+            <div class="user-box">
+                <input type="text" name="area" required="">
+                <label>Área requerida</label>
+            </div>
+            <div class="user-box">
+                <input type="text" name="site" required="">
+                <label>Site Afectado</label>
+            </div>
+            <button class="button next" id="next" type="submit" disabled>Next</button>
+        </form>
+    </div>
+</div>
+
+<div id="ContenedorSub" class="hidden">
+  <!-- Encabezado móvil -->
+  <div class="mobile-header">
+    <div class="row">
+      <div class="col-2">
+        <a href="#" data-activates="sidebar" class="button-collapse" id="sidebarToggle">☰</a>
+      </div>
+      <div class="col">
+        <h4>Events</h4>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contenedor reorganizado en columnas -->
+  <div class="sub-columns-wrapper">
+    <!-- 🟦 Columna izquierda -->
+    <div class="left-column">
+      <div class="sidebar-wrapper" id="sidebar">
+        <div class="sidebar-title">
+          <h4>Disponibles hoy</h4>
+          <h5 id="eventDayName">Date</h5>
+        </div>
+        <div class="sidebar-events" id="sidebarEvents">
+          <!-- Se cargan analistas disponibles dinámicamente -->
+        </div>
+      </div>
+
+      <div class="container">
+        <table>
+          <thead>
+            <tr>
+              <th>Column 1</th>
+              <th>Column 2</th>
+              <th>Column 3</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Cell 1</td><td>Cell 2</td><td>Cell 3</td></tr>
+            <tr><td>Cell 1</td><td>Cell 2</td><td>Cell 3</td></tr>
+            <tr><td>Cell 1</td><td>Cell 2</td><td>Cell 3</td></tr>
+            <tr><td>Cell 1</td><td>Cell 2</td><td>Cell 3</td></tr>
+            <tr><td>Cell 1</td><td>Cell 2</td><td>Cell 3</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- 🟩 Columna derecha -->
+    <div class="right-column">
+      <div class="calendar-wrapper">
+        <!-- Encabezado del calendario -->
+        <div class="header-background">
+          <div class="calendar-header">
+            <div class="prev-button" id="prev">◀</div>
+            <div class="next-button" id="next-month">▶</div>
+            <div class="header-title">
+              <div class="header-text">
+                <h3 id="month-name">February</h3>
+                <h5 id="todayDayName">Today is Friday 7 Feb</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cuerpo del calendario -->
+        <div class="calendar-content">
+            <div id="calendar-table" class="calendar-cells">
+            <!-- Encabezado de días -->
+                <div id="table-header">
+                    <div class="row">
+                        <div class="col">Mon</div>
+                        <div class="col">Tue</div>
+                        <div class="col">Wed</div>
+                        <div class="col">Thu</div>
+                        <div class="col">Fri</div>
+                        <div class="col">Sat</div>
+                        <div class="col">Sun</div>
+                    </div>
+                </div>
+            </div>
+                <!-- Celdas del calendario -->
+                <div id="table-body"></div>
+                </div>
+            </div>
+    
+
+        <!-- Footer de eventos -->
+        <div class="calendar-footer">
+          <div class="emptyForm" id="emptyForm">
+            <h4 id="emptyFormTitle">No events now</h4>
+            <a class="addEvent" id="changeFormButton">Add new</a>
+          </div>
+          <div class="addForm hidden" id="addForm">
+            <h4>Add new event</h4>
+            <div class="row">
+              <div class="input-field col s6">
+                <input id="eventTitleInput" type="text" class="validate">
+                <label for="eventTitleInput">Title</label>
+              </div>
+              <div class="input-field col s6">
+                <input id="eventDescInput" type="text" class="validate">
+                <label for="eventDescInput">Description</label>
+              </div>
+            </div>
+            <div class="addEventButtons">
+              <button class="btn blue" id="addEventButton">Add</button>
+              <button class="btn grey" id="cancelAdd">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="scripts/main.js"></script>
+
+<input type="file" id="excelInput" accept=".xlsx">
+<button id="uploadExcel">Cargar disponibilidad</button>
+<script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
+
+</body>
+</html>
