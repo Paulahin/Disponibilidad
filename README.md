@@ -1,73 +1,52 @@
-# Backend Documentation for Disponibilidad App
+# Disponibilidad App
 
-## Overview
-The Disponibilidad App is a web application designed to manage contact information based on different areas and sites. This backend component is built using Node.js and Express, and it connects to a MySQL database to store and retrieve contact details.
+## Descripción
+La aplicación de Disponibilidad permite a los usuarios ingresar información sobre áreas y sitios, y obtener contactos relacionados desde una base de datos MySQL. La aplicación está dividida en dos partes: el backend, que maneja la lógica del servidor y la base de datos, y el frontend, que proporciona la interfaz de usuario.
 
-## Project Structure
+## Estructura del Proyecto
+El proyecto está organizado de la siguiente manera:
+
 ```
 disponibilidad-app
 ├── backend
 │   ├── db
-│   │   └── schema.sql         # SQL schema for the MySQL database
+│   │   └── schema.sql          # Esquema de la base de datos MySQL
 │   ├── src
-│   │   ├── server.js          # Entry point for the backend application
+│   │   ├── server.js           # Punto de entrada del servidor Express
 │   │   └── controllers
-│   │       └── contactsController.js # Handles contact-related requests
-│   ├── package.json           # npm configuration file
-│   └── README.md              # This file
+│   │       └── contactsController.js # Controlador para manejar contactos
+│   ├── package.json             # Dependencias y scripts del backend
+│   └── README.md                # Documentación del backend
 ├── frontend
-│   ├── Dispo.html             # Main HTML file for the frontend
+│   ├── Dispo.html               # Archivo HTML principal del frontend
 │   ├── styles
-│   │   └── main.css           # CSS styles for the frontend
+│   │   └── main.css             # Estilos CSS para el frontend
 │   └── scripts
-│       └── main.js            # JavaScript code for the frontend
-└── README.md                  # Root README file
+│       └── main.js              # Código JavaScript para el frontend
+└── README.md                    # Documentación general del proyecto
 ```
 
-## Setup Instructions
+## Backend
+El backend está construido con Node.js y Express. Utiliza una base de datos MySQL para almacenar información de contactos, áreas y sitios. 
 
-1. **Clone the Repository**
-   ```bash
-   git clone <repository-url>
-   cd disponibilidad-app/backend
-   ```
+### Instalación
+1. Navega al directorio `backend`.
+2. Ejecuta `npm install` para instalar las dependencias.
+3. Configura la base de datos en `db/schema.sql`.
+4. Inicia el servidor con `node src/server.js`.
 
-2. **Install Dependencies**
-   Ensure you have Node.js installed. Then run:
-   ```bash
-   npm install
-   ```
+### API
+El backend expone varios endpoints para manejar contactos. Consulta el archivo `backend/README.md` para más detalles sobre el uso de la API.
 
-3. **Set Up the Database**
-   - Create a MySQL database.
-   - Run the SQL schema located in `db/schema.sql` to set up the necessary tables.
+## Frontend
+El frontend está construido con HTML, CSS y JavaScript. Proporciona una interfaz de usuario donde los usuarios pueden ingresar información sobre áreas y sitios.
 
-4. **Run the Server**
-   Start the backend server with:
-   ```bash
-   node src/server.js
-   ```
+### Instalación
+1. Abre `Dispo.html` en un navegador web.
+2. Asegúrate de que el backend esté en funcionamiento para interactuar con la API.
 
-## API Usage
+## Contribuciones
+Las contribuciones son bienvenidas. Si deseas contribuir, por favor abre un issue o envía un pull request.
 
-### Endpoints
-
-- **GET /contacts**
-  - Retrieve a list of contacts based on area and site.
-
-- **POST /contacts**
-  - Create a new contact.
-  - Requires JSON body with `area`, `site`, and contact details.
-
-- **PUT /contacts/:id**
-  - Update an existing contact by ID.
-  - Requires JSON body with updated contact details.
-
-- **DELETE /contacts/:id**
-  - Delete a contact by ID.
-
-## Notes
-- Ensure that the MySQL server is running and accessible.
-- Modify the database connection settings in `src/server.js` as needed.
-
-For further details, refer to the individual files and their comments.
+## Licencia
+Este proyecto está bajo la Licencia MIT.
